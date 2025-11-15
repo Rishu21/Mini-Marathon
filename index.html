@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanvidhan Jagar Mini Marathon - Entry Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%),
+                        url('https://res.cloudinary.com/dqcbi0kkh/image/upload/v1763190856/Running_Marathon.webp_f3g2ax.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo-container img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .subheading {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .event-details {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .event-details p {
+            margin: 8px 0;
+            font-size: 1.05em;
+        }
+
+        .event-details strong {
+            color: #ffd700;
+        }
+
+        .form-content {
+            padding: 40px 30px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #1e3c72;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            margin: 15px 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            margin: 12px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .fee-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .organizer-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .organizer-info h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .organizer-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .route-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.95em;
+            color: #1565c0;
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .subheading {
+                font-size: 1em;
+            }
+            
+            .form-content {
+                padding: 30px 20px;
+            }
+            
+            .logos {
+                gap: 15px;
+            }
+            
+            .logo-container img {
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logos">
+                <div class="logo-container">
+                    <img src="https://res.cloudinary.com/dqcbi0kkh/image/upload/v1763190854/images_bmu0hw.jpg" alt="Logo 1">
+                </div>
+                <div class="logo-container">
+                    <img src="https://res.cloudinary.com/dqcbi0kkh/image/upload/v1763190854/5d3880fa-a681-42fd-bc82-b12b84bfb901_mzwwom.jpg" alt="Logo 1">
+                </div>
+            </div>
+            <h1>Sanvidhan Jagar Mini Marathon</h1>
+            <div class="subheading">संविधान की रक्षा, देश की सुरक्षा</div>
+            <div class="event-details">
+                <p><strong>📅 Date:</strong> 26 November 2025</p>
+                <p><strong>⏰ Time:</strong> 8:00 AM</p>
+                <p><strong>📍 City:</strong> Nagpur, Maharashtra</p>
+            </div>
+        </div>
+
+        <div class="form-content">
+            <div class="fee-box">
+                💰 Registration Fee: ₹100
+            </div>
+
+            <div class="route-info">
+                <strong>🗺️ Marathon Route:</strong> Kapil Nagar → Mahada Chowk → Manas Mandir → Kaach Company → Sugat Nagar Buddha Vihar → Tathagat Chowk → Patankar Chowk → Dr. Babasaheb Ambedkar Convention Center → Teka Naka → Kapil Nagar
+            </div>
+
+            <form id="marathonForm">
+                <div class="section-title">👤 Participant Information</div>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="female" name="gender" value="female" required>
+                            <label for="female">Female</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="other" name="gender" value="other" required>
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth (Must be 15+ years) *</label>
+                    <input type="date" id="dob" name="dob" max="2010-11-26" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age *</label>
+                    <input type="number" id="age" name="age" min="15" required readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address *</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number *</label>
+                    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (Optional)</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="section-title">🚨 Emergency Contact</div>
+
+                <div class="form-group">
+                    <label for="emergencyName">Name *</label>
+                    <input type="text" id="emergencyName" name="emergencyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="relation">Relation *</label>
+                    <input type="text" id="relation" name="relation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emergencyPhone">Phone Number *</label>
+                    <input type="tel" id="emergencyPhone" name="emergencyPhone" pattern="[0-9]{10}" required>
+                </div>
+
+                <div class="section-title">🏥 Medical Information</div>
+
+                <div class="form-group">
+                    <label>Do you have any medical conditions, injuries, or allergies? *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="medicalYes" name="medicalCondition" value="yes" required>
+                            <label for="medicalYes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medicalNo" name="medicalCondition" value="no" required>
+                            <label for="medicalNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="medicalDetailsGroup" style="display: none;">
+                    <label for="medicalDetails">Please specify your medical conditions *</label>
+                    <textarea id="medicalDetails" name="medicalDetails"></textarea>
+                </div>
+
+                <div class="section-title">🆔 ID Proof</div>
+
+                <div class="form-group">
+                    <label for="aadhaar">Aadhaar Number *</label>
+                    <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" maxlength="12" required>
+                </div>
+
+                <div class="section-title">📝 Declaration & Consent</div>
+
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="declare1" name="declare1" required>
+                        <label for="declare1">I hereby declare that I am voluntarily participating in the Sanvidhan Jagar Mini Marathon.</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="declare2" name="declare2" required>
+                        <label for="declare2">I am physically fit and take full responsibility for my safety during the event.</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="declare3" name="declare3" required>
+                        <label for="declare3">I understand that the organizers are not liable for any illness, injury, loss, or damage.</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="declare4" name="declare4" required>
+                        <label for="declare4">I confirm that all the information provided is true to the best of my knowledge.</label>
+                    </div>
+                </div>
+
+                <div id="guardianSection" style="display: none;">
+                    <div class="section-title">👨‍👩‍👧 Parent/Guardian Information (Required for under 18)</div>
+                    
+                    <div class="form-group">
+                        <label for="guardianName">Parent/Guardian Name *</label>
+                        <input type="text" id="guardianName" name="guardianName">
+                    </div>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    ✅ Registration Successful! Your form has been submitted.
+                </div>
+
+                <button type="submit" class="submit-btn">🎯 Submit Registration</button>
+            </form>
+
+            <div class="organizer-info">
+                <h3>📞 Contact Information</h3>
+                <p><strong>Organized By:</strong></p>
+                <p>• Gagan Malik Foundation</p>
+                <p>• Kapil Nagar Yuvak Mandal</p>
+                <p style="margin-top: 15px;"><strong>For Queries:</strong></p>
+                <p>📱 Gunwant Sontakke: 8237791944</p>
+                <p>📱 Ashutosh (Tinku) Kamble: 9834965581</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Calculate age from date of birth
+        document.getElementById('dob').addEventListener('change', function() {
+            const dob = new Date(this.value);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            
+            document.getElementById('age').value = age;
+            
+            // Show/hide guardian section based on age
+            const guardianSection = document.getElementById('guardianSection');
+            const guardianName = document.getElementById('guardianName');
+            
+            if (age < 18) {
+                guardianSection.style.display = 'block';
+                guardianName.required = true;
+            } else {
+                guardianSection.style.display = 'none';
+                guardianName.required = false;
+            }
+        });
+
+        // Show/hide medical details based on selection
+        document.querySelectorAll('input[name="medicalCondition"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const medicalDetailsGroup = document.getElementById('medicalDetailsGroup');
+                const medicalDetails = document.getElementById('medicalDetails');
+                
+                if (this.value === 'yes') {
+                    medicalDetailsGroup.style.display = 'block';
+                    medicalDetails.required = true;
+                } else {
+                    medicalDetailsGroup.style.display = 'none';
+                    medicalDetails.required = false;
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('marathonForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                dob: document.getElementById('dob').value,
+                age: document.getElementById('age').value,
+                address: document.getElementById('address').value,
+                mobile: document.getElementById('mobile').value,
+                email: document.getElementById('email').value,
+                emergencyContact: {
+                    name: document.getElementById('emergencyName').value,
+                    relation: document.getElementById('relation').value,
+                    phone: document.getElementById('emergencyPhone').value
+                },
+                medicalCondition: document.querySelector('input[name="medicalCondition"]:checked').value,
+                medicalDetails: document.getElementById('medicalDetails').value,
+                aadhaar: document.getElementById('aadhaar').value,
+                guardianName: document.getElementById('guardianName').value,
+                submissionDate: new Date().toISOString()
+            };
+            
+            // Store in memory (could be sent to server in real implementation)
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                this.reset();
+                successMessage.style.display = 'none';
+                document.getElementById('guardianSection').style.display = 'none';
+                document.getElementById('medicalDetailsGroup').style.display = 'none';
+            }, 3000);
+        });
+
+        // Format Aadhaar input
+        document.getElementById('aadhaar').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        // Format mobile numbers
+        document.getElementById('mobile').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        document.getElementById('emergencyPhone').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+    </script>
+</body>
+</html>
